@@ -8,7 +8,7 @@ app = Flask(__name__)
 def home():
     return render_template('home.html')
 
-@app.route('/', methods=["POST"])
+@app.route('/prediction', methods=["POST"])
 def startPrediction():
     combined_shot_type = request.form["combined_shot_type"]
     loc_x = request.form["loc_x"]
@@ -20,7 +20,8 @@ def startPrediction():
     shot_type_flag = request.form["shot_type_flag"]
     game_date = request.form["game_date"]
     opponent = request.form["opponent"]
-    return predict(combined_shot_type, loc_x, loc_y, seconds_remaining, period, season, shot_made, shot_type_flag, game_date, opponent)
+    predict(combined_shot_type, loc_x, loc_y, seconds_remaining, period, season, shot_made, shot_type_flag, game_date, opponent)
+    return render_template('second.html', combined_shot_type = combined_shot_type)
 
 if __name__ == '__main__':
     app.run(debug=True)
