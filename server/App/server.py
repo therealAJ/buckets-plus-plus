@@ -1,7 +1,12 @@
-from flask import Flask, request
+from flask import Flask, request, render_template
 from logistic_regression import predict
 
+
 app = Flask(__name__)
+
+@app.route('/') 
+def home():
+    return render_template('home.html')
 
 @app.route('/', methods=["POST"])
 def startPrediction():
