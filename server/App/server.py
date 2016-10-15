@@ -1,6 +1,5 @@
 from flask import Flask, request, render_template
-from logistic_regression import predict
-
+from predict import predict
 
 app = Flask(__name__)
 
