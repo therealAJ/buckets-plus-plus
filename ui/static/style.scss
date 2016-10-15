@@ -1,0 +1,44 @@
+$east_team: #2e3db2;
+$west-team: #dd3d77;
+
+.app {
+  height: 90vh;
+  .container {
+    height: 100%;
+    margin-top: 5%;
+  }
+
+  .col {
+    height: 90vh;
+    .court {
+      height: 100%;
+    }
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  ul {
+    .region {
+      font-weight: bold;
+    }
+
+    .east {
+      color: $east_team;
+    }
+
+    .west {
+      color: $west_team;
+    }
+  }
+}
+
+
+
+
+
+.court_img {
+  width: 100%;
+  height: 100%;
+}

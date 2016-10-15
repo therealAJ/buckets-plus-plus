@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+
+  <body>
+    <div class="app">
+      <div class="container">
+        <div class="row">
+          <div class="col m10">
+            <div class="court">
+              <img src="img/court.jpg" alt="CourtImg" class="court_img"/>
+            </div>
+          </div>
+          <div class="col m2">
+
+            <div class="team_selection">
+              <p>👕 Chosen Team:</p>
+              <p>ONCLICK HERE</p>
+              <a class='dropdown-button btn' href='#' data-activates='drop_team'>TEAM</a>
+              <ul id='drop_team' class='dropdown-content'>
+                <li><a href="#!" class="east region">EAST</a></li> <!-- ONCLICK -->
+                <li><a href="#!" class="east">Atlanta Hawks</a></li>
+                <li><a href="#!" class="east">Boston Celtics</a></li>
+                <li><a href="#!" class="east">Charlotte Hornets</a></li>
+                <li><a href="#!" class="east">Chicago Bulls</a></li>
+                <li><a href="#!" class="east">Cleveland Cavaliers</a></li>
+                <li><a href="#!" class="east">Indiana Pacers</a></li>
+                <li><a href="#!" class="east">Miami Heat</a></li>
+                <li><a href="#!" class="east">Milwaukee Bucks</a></li>
+                <li><a href="#!" class="east">Brooklyn Nets</a></li>
+                <li><a href="#!" class="east">New York Knicks</a></li>
+                <li><a href="#!" class="east">Orlando Magic</a></li>
+                <li><a href="#!" class="east">Philadelphia 76ers</a></li>
+                <li><a href="#!" class="east">Toronto Raptors</a></li>
+                <li><a href="#!" class="east">Washington Wizards</a></li>
+
+                <li class="divider"></li>
+                <li><a href="#!" class="west region">WEST</a></li> <!-- ONCLICK -->
+                <li class="divider"></li>
+                <li><a href="#!" class="west">Dallas Mavericks</a></li>
+                <li><a href="#!" class="west">Denver Nuggets</a></li>
+                <li><a href="#!" class="west">Golden State Warriors</a></li>
+                <li><a href="#!" class="west">Houston Rockets</a></li>
+                <li><a href="#!" class="west">Los Angeles Clippers</a></li>
+                <li><a href="#!" class="west">Los Angeles Lakers</a></li>
+                <li><a href="#!" class="west">Memphis Grizzlies</a></li>
+                <li><a href="#!" class="west">New Orleans Pelicans</a></li>
+                <li><a href="#!" class="west">Oklahoma City Thunder</a></li>
+                <li><a href="#!" class="west">Phoenix Suns</a></li>
+                <li><a href="#!" class="west">Portland Trail Blazers</a></li>
+                <li><a href="#!" class="west">Sacramento Kings</a></li>
+                <li><a href="#!" class="west">San Antonio Spurs</a></li>
+                <li><a href="#!" class="west">Utah Jazz</a></li>
+              </ul>
+
+              <br>
+
+              <div class="time_selectoin">
+                <p>🕐 Remaining Time:</p>
+                <div class="input-field col s12">
+                  <select id="drop_time_min">
+                  </select>
+                  <label>Materialize Select</label>
+                </div>
+                <!-- <script type="text/javascript">
+                  var time_holder = '<option value="" disabled selected>Min</option>';
+                  for (var i = 1; i < 60; i++) {
+                    time_holder += '<option value="'+i+'">Option '+i+'</option>'
+                  }
+                  document.getElementById('drop_time_min').innerHTML += time_holder;
+                </script> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+</html>
