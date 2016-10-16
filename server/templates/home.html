@@ -1,23 +1,16 @@
-<!-- <html>
+<html>
 <head>
 	<title></title>
 </head>
 <body>
 	<form action="prediction" method="POST">
-		<input name="combined_shot_type">
 		<input name="loc_x">
 		<input name="loc_y">
-		<input name="seconds_remaining">
-		<input name="period">
-		<input name="season">
-		<input name="shot_made">
-		<input name="shot_type_flag">
-		<input name="game_date">
-		<input name="opponent">
+		<input name="time_remaining">
 		<input type="submit" value="Echo">
 	</form>
 </body>
-</html> -->
+</html>
 
 <!DOCTYPE html>
 <html>
@@ -37,28 +30,24 @@
     <script type="text/javascript" src="{{ url_for('static',filename='js/paper.js') }}"></script>
     <script type="text/paperscript" src="{{ url_for('static',filename='js/client.js') }}" canvas="paper_stage"></script>
     <!-- Define inlined JavaScript -->
-
   </head>
 
   <body>
     <div class="app">
       <div class="container">
-        <div class="row">
 
-          <div class="col m10">
+        <div class="row">
+          <div class="col m12">
             <div class="court">
-              <canvas width="700" height="1200" id="paper_stage"></canvas>
-              <script>
-                var screenWidth = screen.width;
-                var screenHeight = screen.height;
-                document.getElementById("paper_stage").style.width = screenWidth;
-                document.getElementById("paper_stage").style.height = screenWidth;
-              </script>
+              <p id="percent_output"></p>
+              <canvas width="653" height="614" id="paper_stage"></canvas>
               <img src="{{ url_for('static',filename='img/court.jpg') }}" alt="CourtImg" id="court_img"/>
             </div>
           </div>
+        </div>
 
-          <div class="col m2">
+        <div class="row">
+          <div class="col m12">
 
             <div class="team_selection">
               <p>👕 Chosen Team:</p>
@@ -109,13 +98,6 @@
                   </select>
                   <label>Materialize Select</label>
                 </div>
-                <!-- <script type="text/javascript">
-                  var time_holder = '<option value="" disabled selected>Min</option>';
-                  for (var i = 1; i < 60; i++) {
-                    time_holder += '<option value="'+i+'">Option '+i+'</option>'
-                  }
-                  document.getElementById('drop_time_min').innerHTML += time_holder;
-                </script> -->
               </div>
             </div>
           </div>
