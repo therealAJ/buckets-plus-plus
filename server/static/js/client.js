@@ -15,41 +15,48 @@ var percent_output = document.getElementById('percent_output');
 
 // Reposition the percentage
 // oh shit this should be fixed with the relative point
-function updatePercentOutput(event) {
+function updatePercentOutput(event, percentage) {
 	percent_output.style.left = (event.point.x + 35).toString() + "px";
 	percent_output.style.top = (event.point.y - 40).toString() + "px";
-	percent_output.innerHTML = Math.round(event.point.x).toString() + "%";
-
+	//percent_output.innerHTML = Math.round(event.point.x).toString() + "%";
+	console.log(Math.round(percentage * 100));
+	percent_output.innerHTML = Math.round(percentage * 100).toString() + "%";
 }
 
 function recordPosition(event) {
-	var x = event.point.x;
-	var y = event.point.y;
-	console.log("x: " + x);
-	sendHttp()
+	sendHttp(event)
 }
 
-function sendHttp() {
+function sendHttp(event) {
 	var http = new XMLHttpRequest();
 	var url = "prediction";
 	var data = new FormData();
-	data.append('loc_x', 0);
-	data.append('loc_y', 0);
+	var location = convertPositionToLoc(event);
+	data.append('loc_x', Math.round(location[0]));
+	data.append('loc_y', Math.round(location[1]));
 	data.append('time_remaining', 0);
 	
 	http.open("POST", url, true);
 
 	http.onload = function() {
 		console.log(this.responseText);
+		updatePercentOutput(event, this.responseText)
 	}
 	http.send(data);
 }
 
-function convertPositionToLoc(x, y) {
+function convertPositionToLoc(event) {
 	var width = document.getElementById('court_img').clientWidth;
 	var height = document.getElementById('court_img').clientHeight;
+	var x = event.point.x;
+	var y = event.point.y;
 	console.log(x/width * 250)
 	console.log(y/width * 250)
+	return [x/width * 250, y/width * 250];
+}
+
+function timeToSeconds(minutes, seconds) {
+	return minutes * 60 + seconds;
 }
 
 function onMouseDown(event) {
@@ -66,7 +73,7 @@ function onMouseDown(event) {
 		playerPosition[playerCount].strokeColor = 'blue';
 		playerPosition[playerCount].fillColor = '#e09cb8';
 		playerExist[playerCount] = true;
-		updatePercentOutput(event);
+		//updatePercentOutput(event);
 	}
 }
 
@@ -75,18 +82,20 @@ function onMouseDrag(event) {
 	var closestPath;
 	console.log(event.point);
 	// Find the closest point
-	for(var key in playerPosition) {
-		console.log("== KEYYY");
-		console.log(key);
-		console.log("=== POSITION");
-   	console.log(playerPosition[key].position);
-		playerPosition[key];
-	}
-	playerPosition.position = new Point(event.point.x, event.point.y );
-	updatePercentOutput(event);
+	// for(var key in playerPosition) {
+	// 	console.log("== KEYYY");
+	// 	console.log(key);
+	// 	console.log("=== POSITION");
+  //  	console.log(playerPosition[key].position);
+	// 	playerPosition[key];
+	// }
+	playerPosition[playerCount].position = new Point(event.point.x, event.point.y );
+	//updatePercentOutput(event);
+	recordPosition(event);
 }
 
 function onMouseUp(event) {
 
 }
+
 
