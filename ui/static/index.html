@@ -23,7 +23,7 @@
       <div class="container">
 
         <div class="row">
-          <div class="col m12">
+          <div class="col m12 l12">
             <div class="court">
               <p id="percent_output"></p>
               <canvas width="653" height="614" id="paper_stage"></canvas>
@@ -33,7 +33,7 @@
         </div>
 
         <div class="row">
-          <div class="col m12">
+          <div class="col m12 l12">
 
             <div class="team_selection">
               <p>👕 Chosen Team:</p>
@@ -81,14 +81,15 @@
                 <p>🕐 Remaining Time:</p>
                 <form action="#">
                   <p class="range-field time_slider" id="min_slider">
-                    Minutes:&nbsp;&nbsp;&nbsp;<input type="range" min="0" max="60" />
+                    Minutes:&nbsp;&nbsp;&nbsp;<input type="range" min="0" max="60" value='100'/>
                   </p>
                 </form>
                 <form action="#">
                   <p class="range-field time_slider" id="sec_slider">
-                    Seconds:&nbsp;&nbsp;&nbsp;<input type="range" min="0" max="60" />
+                    Seconds:&nbsp;&nbsp;&nbsp;<input type="range" min="0" max="60" value='100'/>
                   </p>
                 </form>
+                <p id="total_remaining_time"></p>
               </div>
             </div>
           </div>
