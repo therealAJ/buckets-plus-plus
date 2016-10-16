@@ -1,18 +1,36 @@
 $east_team: #2e3db2;
 $west-team: #dd3d77;
 
+html {
+  background: black;
+  width: 769px;
+
+  body {
+    width: 769px;
+  }
+}
+
 .app {
-  height: 90vh;
+  width: 769px;
+
+  color: white;
+
   .container {
     height: 100%;
     margin-top: 5%;
   }
 
   .col {
-    height: 90vh;
     .court {
       height: 100%;
     }
+  }
+
+  #percent_output {
+    position: absolute;
+    font-size: 25px;
+    font-weight: bold;
+    color: #a7aaff;
   }
 
   #paper_stage {

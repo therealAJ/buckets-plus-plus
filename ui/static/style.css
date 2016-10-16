@@ -1,12 +1,22 @@
+html {
+  background: black;
+  width: 769px; }
+  html body {
+    width: 769px; }
+
 .app {
-  height: 90vh; }
+  width: 769px;
+  color: white; }
   .app .container {
     height: 100%;
     margin-top: 5%; }
-  .app .col {
-    height: 90vh; }
-    .app .col .court {
-      height: 100%; }
+  .app .col .court {
+    height: 100%; }
+  .app #percent_output {
+    position: absolute;
+    font-size: 25px;
+    font-weight: bold;
+    color: #a7aaff; }
   .app #paper_stage {
     position: absolute; }
   .app .btn {
