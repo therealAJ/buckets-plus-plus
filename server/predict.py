@@ -7,9 +7,12 @@ from collections import OrderedDict
 def _predict(time_remaining, loc_x, loc_y, model):
 	angle = np.pi/2 if loc_x == 0 else np.arctan(loc_y / loc_x)
 	distance = np.sqrt(loc_x ** 2 + loc_y ** 2)
-	obs_d = OrderedDict({'time_remaining': time_remaining, 
-						 'angle': 	angle,
-						 'distance': distance})
+
+	obs_d = OrderedDict.fromkeys(('time_remaining', 'angle', 'distance'))
+	obs_d['time_remaining'] = time_remaining
+	obs_d['angle'] = angle
+	obs_d['distance'] = distance
+
 	obs_df = DataFrame(obs_d, index=[0])
 	return model.predict_proba(obs_df)	
 

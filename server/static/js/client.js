@@ -37,6 +37,8 @@ function sendHttp(event) {
 	var seconds = document.getElementById('secondInput').value;
 	var totalSeconds = timeToSeconds(minutes, seconds);
 	console.log(totalSeconds);
+	console.log("x: " + Math.round(location[0]));
+	console.log("y: " + Math.round(location[1]));
 	data.append('loc_x', Math.round(location[0]));
 	data.append('loc_y', Math.round(location[1]));
 	data.append('time_remaining', totalSeconds);
@@ -51,13 +53,15 @@ function sendHttp(event) {
 }
 
 function convertPositionToLoc(event) {
-	var width = document.getElementById('court_img').clientWidth;
-	var height = document.getElementById('court_img').clientHeight;
+	var width = document.getElementById('paper_stage').clientWidth;
+	var height = document.getElementById('paper_stage').clientHeight;
+	console.log("width: " + width);
+	console.log("height: " + height);
 	var x = event.point.x;
 	var y = event.point.y;
-	console.log(x/width * 200)
-	console.log(y/width * 200)
-	return [x/width * 200, y/width * 200];
+	// console.log(x/width * 200)
+	// console.log(y/width * 200)
+	return [x/width * 500 - 250, -y/width * 500 + 422.5];
 }
 
 function timeToSeconds(minutes, seconds) {
@@ -66,7 +70,7 @@ function timeToSeconds(minutes, seconds) {
 
 function onMouseDown(event) {
 	// Only 5 players can be in the court
-	console.log("y: " + event.point.y);
+	//console.log("y: " + event.point.y);
 	if (playerCount < 1) {
 		recordPosition(event)
 		playerCount++;
@@ -83,6 +87,10 @@ function onMouseDown(event) {
 }
 
 function onMouseDrag(event) {
+	
+}
+
+function onMouseUp(event) {
 	var closestCenter;
 	var closestPath;
 	console.log(event.point);
@@ -97,10 +105,6 @@ function onMouseDrag(event) {
 	playerPosition[playerCount].position = new Point(event.point.x, event.point.y );
 	//updatePercentOutput(event);
 	recordPosition(event);
-}
-
-function onMouseUp(event) {
-
 }
 
 

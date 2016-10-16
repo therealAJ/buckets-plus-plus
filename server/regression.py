@@ -19,6 +19,7 @@ from sklearn.svm import SVC
 from sklearn.ensemble import BaggingClassifier, ExtraTreesClassifier, GradientBoostingClassifier, VotingClassifier, RandomForestClassifier, AdaBoostClassifier
 from sklearn.externals import joblib
 
+
 raw_data = pd.read_csv("../csv/data.csv", usecols=["loc_x",
                                                       "loc_y",
                                                       #"shot_distance",
@@ -93,22 +94,14 @@ Y = target
 kfold = KFold(n=len(X), n_folds=3, random_state=7)
 scoring = 'log_loss'
 
-d = OrderedDict({'time_remaining': 1, 'angle': 622, 'distance': 10000})
-df = DataFrame(d, index=[0])
-print(X.head(2))
-print(df)
+#d = OrderedDict({'time_remaining': 100, 'angle': 0, 'distance': 200})
+
 model = GradientBoostingClassifier(n_estimators=100, random_state=7)
 
 results = cross_val_score(model, X, Y, cv=kfold, scoring=scoring, n_jobs=1)
 print("({0:.3f}) +/- ({1:.3f})".format(results.mean(), results.std()))
 
-
-
-print(Y.shape)
 model.fit(X, Y)
-print(model.predict_proba(df))
-
-
 
 print("done")
 
