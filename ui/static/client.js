@@ -1,5 +1,7 @@
 var myPath;
 
+var playerPosition;
+
 var court_img_position = document.getElementById('court_img').getBoundingClientRect();
 var img_left = court_img.left;
 
@@ -12,16 +14,17 @@ function recordPosition(event) {
 
 function onMouseDown(event) {
 	recordPosition(event)
-	var myCircle = new Path.Circle({
+	playerPosition = new Path.Circle({
 		center: event.point,
 		radius: 20
 	});
-	myCircle.strokeColor = 'blue';
-	myCircle.fillColor = 'red';
+	playerPosition.strokeColor = 'blue';
+	playerPosition.fillColor = 'red';
 }
 
 function onMouseDrag(event) {
-	myPath.add(event.point);
+	console.log(event.point);
+	playerPosition.translate(event.position)
 }
 
 function onMouseUp(event) {
