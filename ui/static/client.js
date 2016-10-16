@@ -8,7 +8,7 @@ var img_left = court_img.left;
 function recordPosition(event) {
 	console.log("x: " + event.point.x);
 	console.log("y: " + event.point.y);
-	console.log("Position of img: ");
+	//console.log("Position of img: ");
 	court_img;
 }
 
