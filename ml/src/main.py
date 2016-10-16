@@ -25,11 +25,13 @@ raw_data = pd.read_csv("../../csv/data.csv", usecols=["loc_x",
                                                       "minutes_remaining",
                                                       "seconds_remaining",
                                                       "period",
-                                                      #"season",
+                                                      "season",
                                                       #"game_date",
-                                                      "shot_zone_basic",
                                                       "playoffs",
                                                       "opponent",
+                                                      #"action_type",
+                                                      #"shot_type",
+                                                      "period",
                                                       "shot_made_flag",
                                                       "matchup"])
 
@@ -68,12 +70,15 @@ data['angle'][zero] = np.pi / 2
 
 data['distance'] = np.sqrt(data['loc_y'] ** 2 + data['loc_x'] ** 2)
 
-data.drop('loc_x', axis=1, inplace=True)
-data.drop('loc_y', axis=1, inplace=True)
+
+#data['loc_x'] = pd.cut(data['loc_x'], 25)
+#data['loc_y'] = pd.cut(data['loc_y'], 25)
+#data.drop('loc_x', axis=1, inplace=True)
+#data.drop('loc_y', axis=1, inplace=True)
 
 
 #convert categorical data to one-hot encoding
-categories = ['opponent', 'combined_shot_type', 'shot_zone_basic']
+categories = ['opponent', 'combined_shot_type', 'period', 'season']
 
 for k in categories:
     onehot = pd.get_dummies(data[k])
@@ -81,6 +86,8 @@ for k in categories:
     data = data.join(onehot)
     
 ###############################################################################
+
+
 
 target = data["shot_made_flag"].copy()                                              
 data.drop("shot_made_flag", axis=1, inplace=True) #remove labels from data
