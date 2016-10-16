@@ -17,17 +17,6 @@ var total_remaining_time = document.getElementById('total_remaining_time')
 
 document.getElementById('total_remaining_time')
 
-// Onclick for time sec_slider
-$(document).ready(function() {
-	console.log("hihiihihihihi");
-	document.getElementsByClassName('range')[0].addEventListener('onmouseleave', function() {
-		calcTotalTime();
-	});
-	document.getElementsByClassName('range')[1].addEventListener('onmouseleave', function() {
-		calcTotalTime();
-	});
-})
-
 function calcTotalTime() {
 	console.log("CALCULATING TIME YO");
 	var times = document.getElementsByClassName('value');

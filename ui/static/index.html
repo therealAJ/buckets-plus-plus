@@ -9,7 +9,6 @@
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
     <link rel="stylesheet" type="text/css" href="style.css">
-    <script src="lib/kinetic-v5.1.0.min.js"></script>
     <!-- <script src="client.js"></script> -->
 
     <!-- Load the Paper.js library -->
@@ -33,11 +32,10 @@
         </div>
 
         <div class="row">
-          <div class="col m12 l12">
+          <div class="col m4 l4">
 
             <div class="team_selection">
-              <p>👕 Chosen Team:</p>
-              <p>ONCLICK HERE</p>
+              <p>👕 Chose a Team:</p>
               <a class='dropdown-button btn' href='#' data-activates='drop_team'>TEAM</a>
               <ul id='drop_team' class='dropdown-content'>
                 <li><a href="#!" class="east region">EAST</a></li> <!-- ONCLICK -->
@@ -75,18 +73,43 @@
                 <li><a href="#!" class="west">Utah Jazz</a></li>
               </ul>
 
-              <br>
+            </div>
+          </div>
 
+          <div class="col m4 l4">
+            <p>⚡ Chose a Period:</p>
+            <select class="browser-default" style="background-color:#26a69a;">
+              <option value="" disabled selected style="color:white;">Choose current period</option>
+              <option value="period_1">Period 1</option>
+              <option value="period_2">Period 2</option>
+              <option value="period_3">Period 3</option>
+              <option value="period_3">Period 3</option>
+            </select>
+          </div>
+
+          <div class="col m4 l4">
+            <p>🙆 Chose Shot Type:</p>
+            <select class="browser-default" style="background-color:#26a69a;font-size:15px;">
+              <option value="" disabled selected style="color:white;">Choose desirable shot type</option>
+              <option value="jump_shot">Jumpshot</option>
+              <option value="layup">Layup</option>
+              <option value="dunk">Dunk</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col m12 l12">
               <div class="time_selectoin">
                 <p>🕐 Remaining Time:</p>
                 <form action="#">
                   <p class="range-field time_slider" id="min_slider">
-                    Minutes:&nbsp;&nbsp;&nbsp;<input type="range" min="0" max="60" value='100'/>
+                    Minutes:&nbsp;&nbsp;&nbsp;<input type="range" min="0" max="60"/>
                   </p>
                 </form>
                 <form action="#">
                   <p class="range-field time_slider" id="sec_slider">
-                    Seconds:&nbsp;&nbsp;&nbsp;<input type="range" min="0" max="60" value='100'/>
+                    Seconds:&nbsp;&nbsp;&nbsp;<input type="range" min="0" max="60"/>
                   </p>
                 </form>
                 <p id="total_remaining_time"></p>
