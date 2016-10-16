@@ -1,5 +1,5 @@
 from flask import Flask, request, render_template
-from predict import makeprediction
+from predict import makeprediction, makegridprediction
 
 app = Flask(__name__)
 
@@ -17,6 +17,15 @@ def startPrediction():
     print str(result)
     return str(result)
     #return render_template('second.html', combined_shot_type = combined_shot_type)
+
+@app.route('/heatmap', methods=["POST"])
+def heatMap():
+    time_remaining = request.form["time_remaining"]
+    loc_x = request.form["loc_x"]
+    loc_y = request.form["loc_y"]
+    result = makegridprediction(time_remaining, loc_x, loc_y)
+    print(result)
+    return str(result)
 
 if __name__ == '__main__':
     app.run(debug=True)

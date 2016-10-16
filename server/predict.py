@@ -25,4 +25,18 @@ def makeprediction(time_remaining, loc_x, loc_y):
 	loaded_model = joblib.load(filename)
 	result = _predict(time_remaining, loc_x, loc_y, loaded_model)
 	return result[0][1]
+
+def makegridprediction(time_remaining, locs_x, locs_y):
+	time_remaining = int(time_remaining)
+
+	x_arr = locs_x.split(',')
+	x_arr = [int(val) for val in x_arr]
+
+	y_arr = locs_y.split(',')
+	y_arr = [int(val) for val in y_arr]	
+
+	filename = 'finalized_model.sav'
+	loaded_model = joblib.load(filename)
 	
+	results = [_predict(time_remaining, x_arr[i], y_arr[i], loaded_model)[0][1] for i in range(len(x_arr))]
+	return ','.join(str(val) for val in results)
