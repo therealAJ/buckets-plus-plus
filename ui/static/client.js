@@ -48,14 +48,14 @@ function onMouseDrag(event) {
 	var closestPath;
 	console.log(event.point);
 	// Find the closest point
-	for(var key in playerPosition) {
-		console.log("== KEYYY");
-		console.log(key);
-		console.log("=== POSITION");
-   	console.log(playerPosition[key].position);
-		playerPosition[key];
-	}
-	playerPosition.position = new Point(event.point.x, event.point.y );
+	// for(var key in playerPosition) {
+	// 	console.log("== KEYYY");
+	// 	console.log(key);
+	// 	console.log("=== POSITION");
+  //  	console.log(playerPosition[key].position);
+	// 	playerPosition[key];
+	// }
+	playerPosition[playerCount].position = new Point(event.point.x, event.point.y );
 	updatePercentOutput(event);
 }
 

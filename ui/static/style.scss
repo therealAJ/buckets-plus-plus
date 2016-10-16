@@ -37,7 +37,50 @@ html {
     position: absolute;
   }
 
+  .time_selectoin {
 
+    input {
+      width: 85% !important;
+    }
+
+    p {
+      font-size: 18px !important;
+    }
+    .time_slider {
+      .thumb {
+        &.active {
+          height: 40px !important;
+          width: 40px !important;
+          top: -36px !important;
+          margin-left: -14px !important;
+
+          .value {
+            font-size: 20px !important;
+                margin-left: 7px !important;
+                margin-top: 7px !important;
+                padding-bottom: 6px !important;
+                padding-right: 10px !important;
+          }
+        }
+      }
+    }
+
+    #min_slider {
+      .thumb {
+        &.active {
+          background-color: #7b15a3;
+        }
+      }
+    }
+
+    #sec_slider {
+      .thumb {
+        &.active {
+          background-color: #c73030;
+        }
+      }
+    }
+  }
   .btn {
     width: 100%;
   }

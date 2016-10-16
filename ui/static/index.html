@@ -79,11 +79,16 @@
 
               <div class="time_selectoin">
                 <p>🕐 Remaining Time:</p>
-                <div class="input-field col s12">
-                  <select id="drop_time_min">
-                  </select>
-                  <label>Materialize Select</label>
-                </div>
+                <form action="#">
+                  <p class="range-field time_slider" id="min_slider">
+                    Minutes:&nbsp;&nbsp;&nbsp;<input type="range" min="0" max="60" />
+                  </p>
+                </form>
+                <form action="#">
+                  <p class="range-field time_slider" id="sec_slider">
+                    Seconds:&nbsp;&nbsp;&nbsp;<input type="range" min="0" max="60" />
+                  </p>
+                </form>
               </div>
             </div>
           </div>
