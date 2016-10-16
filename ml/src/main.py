@@ -73,7 +73,7 @@ Y = target
 
 X_norm = MinMaxScaler(feature_range=(0,1)).fit_transform(X)
 
-
+"""
 models = []
 models.append(('LR', LogisticRegression()))
 models.append(('LDA', LinearDiscriminantAnalysis()))
@@ -81,7 +81,7 @@ models.append(('K-NN', KNeighborsClassifier(n_neighbors=5)))
 models.append(('CART', DecisionTreeClassifier()))
 models.append(('NB', GaussianNB()))
 
-"""
+
 cv_scores = []
 names = []
 
@@ -93,6 +93,7 @@ for name, model in models:
 """
 
 kfold = KFold(n=len(X), n_folds=3, random_state=7)
+scoring = 'log_loss'
 
 lr_grid = GridSearchCV(
     estimator = LogisticRegression(random_state=7),
@@ -108,6 +109,28 @@ lr_grid.fit(X, Y)
 
 print(lr_grid.best_score_)
 print(lr_grid.best_params_)
+
+
+
+knn_grid = GridSearchCV(
+    estimator = Pipeline([
+        ('min_max_scaler', MinMaxScaler()),
+        ('knn', KNeighborsClassifier())
+    ]),
+    param_grid = {
+        'knn__n_neighbors': [25],
+        'knn__algorithm': ['ball_tree'],
+        'knn__leaf_size': [2, 3, 4],
+        'knn__p': [1]
+    }, 
+    cv = kfold, 
+    scoring = scoring, 
+    n_jobs = 1)
+
+knn_grid.fit(X, Y)
+
+print(knn_grid.best_score_)
+print(knn_grid.best_params_)
 
 print("done")
 
