@@ -20,7 +20,8 @@ function updatePercentOutput(event, percentage) {
 	percent_output.style.top = (event.point.y - 40).toString() + "px";
 	//percent_output.innerHTML = Math.round(event.point.x).toString() + "%";
 	console.log(Math.round(percentage * 100));
-	percent_output.innerHTML = Math.round(percentage * 100).toString() + "%";
+	percentage = Math.round(percentage * 1000) /10;
+	percent_output.innerHTML = percentage.toString() + "%";
 }
 
 function recordPosition(event) {
@@ -32,9 +33,13 @@ function sendHttp(event) {
 	var url = "prediction";
 	var data = new FormData();
 	var location = convertPositionToLoc(event);
+	var minutes = document.getElementById('minuteInput').value;
+	var seconds = document.getElementById('secondInput').value;
+	var totalSeconds = timeToSeconds(minutes, seconds);
+	console.log(totalSeconds);
 	data.append('loc_x', Math.round(location[0]));
 	data.append('loc_y', Math.round(location[1]));
-	data.append('time_remaining', 0);
+	data.append('time_remaining', totalSeconds);
 	
 	http.open("POST", url, true);
 
@@ -50,9 +55,9 @@ function convertPositionToLoc(event) {
 	var height = document.getElementById('court_img').clientHeight;
 	var x = event.point.x;
 	var y = event.point.y;
-	console.log(x/width * 250)
-	console.log(y/width * 250)
-	return [x/width * 250, y/width * 250];
+	console.log(x/width * 200)
+	console.log(y/width * 200)
+	return [x/width * 200, y/width * 200];
 }
 
 function timeToSeconds(minutes, seconds) {
