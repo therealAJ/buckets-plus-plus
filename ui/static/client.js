@@ -113,6 +113,15 @@ function createHeatString(rec_map) {
 
 drawGridRects(30, 30, paper.view.bounds);
 
-console.log(rec_map[11].position._x);
+function percetageToGradient(num) {
+	return [255, 1-num * 255, 1-num * 255];
+}
 
-console.log(createHeatString(rec_map));
+function mapPredictionAsHeat(predictions) {
+	predictions = predictions.split(',');
+	for (var t = 0; t < predictions.length; t++) {
+		if (rec_map[t]) {
+			rec_map[t].fillColor = percetageToGradient(predictions[t])
+		}
+	}
+}
