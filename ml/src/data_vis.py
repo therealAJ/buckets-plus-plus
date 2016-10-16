@@ -6,6 +6,8 @@ Created on Sat Oct 15 14:17:21 2016
 """
 
 """
+import seaborn as sns
+
 raw_data = pd.read_csv("../../csv/data.csv", usecols=["loc_x",
                                                       "loc_y",
                                                       "shot_distance",
