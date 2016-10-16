@@ -9,17 +9,34 @@
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="lib/kinetic-v5.1.0.min.js"></script>
+    <!-- <script src="client.js"></script> -->
+
+    <!-- Load the Paper.js library -->
+    <script type="text/javascript" src="lib/paper.js"></script>
+    <script type="text/paperscript" src="client.js" canvas="paper_stage"></script>
+    <!-- Define inlined JavaScript -->
+
   </head>
 
   <body>
     <div class="app">
       <div class="container">
         <div class="row">
+
           <div class="col m10">
             <div class="court">
-              <img src="img/court.jpg" alt="CourtImg" class="court_img"/>
+              <canvas width="700" height="1200" id="paper_stage"></canvas>
+              <script>
+                var screenWidth = screen.width;
+                var screenHeight = screen.height;
+                document.getElementById("paper_stage").style.width = screenWidth;
+                document.getElementById("paper_stage").style.height = screenWidth;
+              </script>
+              <img src="img/court.jpg" alt="CourtImg" id="court_img"/>
             </div>
           </div>
+
           <div class="col m2">
 
             <div class="team_selection">

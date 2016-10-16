@@ -7,6 +7,8 @@
     height: 90vh; }
     .app .col .court {
       height: 100%; }
+  .app #paper_stage {
+    position: absolute; }
   .app .btn {
     width: 100%; }
   .app ul .region {
@@ -16,7 +18,7 @@
   .app ul .west {
     color: #dd3d77; }
 
-.court_img {
+#court_img {
   width: 100%;
   height: 100%; }
 
