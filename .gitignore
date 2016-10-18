@@ -98,6 +98,7 @@ ui/.sass-cache
 *.map
 
 #CSVs
-/csv
+/csv/
+/server/csv/
 
 
