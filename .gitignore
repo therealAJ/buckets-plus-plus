@@ -92,7 +92,7 @@ ENV/
 /ml/.idea/
 /.idea/
 
-#Atsushi shit
+#UI
 ui/node_modules
 ui/.sass-cache
 *.map
