@@ -1,7 +1,7 @@
 # buckets++
 ### A way to predict an NBA's players chance of making a shot using machine learning
 
-###Quackcon 2016f Hackathon Project
+#### Quackcon 2016f Hackathon Project
 #### Continued development by Alex Jordache
 
 ##Technologies Used
