@@ -1,10 +1,8 @@
 # buckets++
-#### A way to predict an NBA's players chance of making a shot using machine learning
+### A way to predict an NBA's players chance of making a shot using machine learning
 
-##Quackcon 2016f Hackathon Project
-### Continued development by Alex Jordache
-
-![alt tag](https://raw.githubusercontent.com/therealAJ/CoachMe/master/demo.mp4)
+###Quackcon 2016f Hackathon Project
+#### Continued development by Alex Jordache
 
 ##Technologies Used
 **Frontend:** HTML5, CSS3, JavaScript
