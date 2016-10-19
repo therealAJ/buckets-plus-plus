@@ -91,6 +91,8 @@ ENV/
 #DIRECTORIES
 /ml/.idea/
 /.idea/
+/server/static/js/kinetic-v5.1.0.js
+/server/static/js/paper.js
 
 #UI
 ui/node_modules
