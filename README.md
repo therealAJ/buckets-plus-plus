@@ -1,6 +1,8 @@
 # buckets++
 ### A way to predict an NBA's players chance of making a shot using machine learning
 
+![alt-tag](https://raw.githubusercontent.com/therealAJ/CoachMe/master/demo.gif)
+
 #### Quackcon 2016f Hackathon Project
 #### Continued development by Alex Jordache
 
