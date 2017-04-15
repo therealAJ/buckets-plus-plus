@@ -1,20 +1,20 @@
 # buckets++
-### A way to predict an NBA's players chance of making a shot using machine learning
+## A way to predict an NBA's players chance of making a shot using machine learning
 
 ![alt-tag](https://raw.githubusercontent.com/therealAJ/CoachMe/master/demo.gif)
 
 #### Quackcon 2016f Hackathon Project
 #### Continued development by Alex Jordache
 
-##Technologies Used
+### Technologies Used
 **Frontend:** HTML5, CSS3, JavaScript
 
 **Backend:** Python, Flask, Node.js
 
 **Libraries:** scikit learn, pandas, seaborn, matplotlib
 
-##License
+## License
 Licensed under the Apache License.
 
-##Troubleshooting/Contact
+## Troubleshooting/Contact
 If having issues, contact alex.jordache@alumni.ubc.ca for help.
